@@ -1,6 +1,5 @@
 import requests
 def recipe_search(ingredient):
-# Register to get an APP ID and key https://developer.edamam.com/
     app_id = '7ce35082'
     app_key = 'b9556c7fe5a71c999ae5db61af5beb8f'
     result = requests.get(
