@@ -36,15 +36,15 @@ def run():
     ## Getting recipes that match the user-search criteria
     for result in results:
         
-        ### Extracting the selected information from the data of JSON -
+        ### Extracting the selected information from the data of JSON (dictionary)-
         
-        #### Matching recipe in hit
+        #### Looking for matching recipes - through the URL that we have previously set up
         recipe = result['recipe']
         
         #### Recipe title in recipe
         print(recipe['label'])
         
-        #### Link to recipe in Edamam
+        #### Links to recipe available on the Edamam site
         print(recipe['shareAs'])
         
 
