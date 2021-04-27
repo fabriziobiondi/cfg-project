@@ -13,7 +13,7 @@ import requests
 # Main function to search for recipes from Edmame API
 def recipe_search(ingredient):
 
-    ## Setting up the URL at the backend with app id and key - Able to put 'ingredients' (input from users back to this for searches
+    ## Setting up the URL at the backend with app id and key - Able to put 'ingredients' (input from user) back to this for searches
     result = requests.get(
         'https://api.edamam.com/search?q={}&app_id=c457e479&app_key=30acb7fe7dbb730ae70f3b81f1ce1d9f'.format(ingredient)
     )
