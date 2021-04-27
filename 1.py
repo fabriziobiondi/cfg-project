@@ -4,23 +4,23 @@ import py_edamam
 import requests
 
 #setting up search fuction with id and key so we can get data and will produce url
-def flower(paperclip):
-    bench = requests.get(
-        'https://api.edamam.com/search?q={}&app_id=c457e479&app_key=30acb7fe7dbb730ae70f3b81f1ce1d9f'.format(paperclip)
+def recipe_search(ingredient):
+    result = requests.get(
+        'https://api.edamam.com/search?q={}&app_id=c457e479&app_key=30acb7fe7dbb730ae70f3b81f1ce1d9f'.format(ingredient)
     )
     #makes the javascript information and data readable
-    data = bench.json()
+    data = result.json()
     #hits means matching results hits is part of api
     return data['hits']
 
 #what the user experiences
 def run():
-    paperclip = input('Enter an ingredient: ')
-    butterfly = flower(paperclip)
+    ingredient = input('Enter an ingredient: ')
+    results = recipe_search(ingredient)
 
 
-    for bench in butterfly:
-        recipe = bench['recipe']
+    for result in results:
+        recipe = result['recipe']
         print(recipe['label'])
         print(recipe['shareAs'])
         print()
