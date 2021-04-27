@@ -1,25 +1,27 @@
+#import library of recipes
 import py_edamam
+#importing ability to communicate with site
 import requests
 
-def _init_(ingredient, app_id, app_key):
+#setting up search fuction with id and key so we can get data and will produce url
+def flower(paperclip):
+    bench = requests.get(
+        'https://api.edamam.com/search?q={}&app_id=c457e479&app_key=30acb7fe7dbb730ae70f3b81f1ce1d9f'.format(paperclip)
+    )
+    #makes the javascript information and data readable
+    data = bench.json()
+    #hits means matching results hits is part of api
+    return data['hits']
 
-    def recipe_search(ingredient):
-        ingredient.app_id = '7ce35082'
-        ingredient.app_key = 'b9556c7fe5a71c999ae5db61af5beb8f'
-result = requests.get(
-'https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, app_id,
-
-app_key)
-)
-data = result.json()
-return data['hits']
+#what the user experiences
 def run():
-    ingredient = input('Enter an ingredient: ')
-    results = recipe_search(ingredient)
-for result in results:
-    recipe = result['recipe']
-print(recipe['label'])
-print(recipe['uri'])
-print()
-run()
+    paperclip = input('Enter an ingredient: ')
+    butterfly = flower(paperclip)
 
+
+    for bench in butterfly:
+        recipe = bench['recipe']
+        print(recipe['label'])
+        print(recipe['shareAs'])
+        print()
+run()
