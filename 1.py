@@ -1,7 +1,7 @@
 """
 Project: CFG Python Project - Search
 Description: Recipe search using Edamame API
-Created by: Raina Greifer and Yui Yan Wongo ff
+Created by: Raina Greifer and Yui Yan Wongo
 """
 
 # Importing libraries
