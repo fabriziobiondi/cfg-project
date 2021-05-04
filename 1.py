@@ -1,7 +1,7 @@
 """
 Project: CFG Python Project - Search
 Description: Recipe search using Edamame API
-Created by: Raina Greifer and Yui Yan Wongo
+Created by: Raina Greifer and Yui Yan Wong
 """
 
 # Importing libraries
@@ -167,9 +167,12 @@ def random_recipe_search(ingredient, allergy):
     # Printing out results in console
     print('\n')
     print(recipe["label"])
+    print(recipe['shareAs'], '\n')
     print("Ingredients:")
+    print("\nIngredients:", '\n', dashes)
     for ingredient in recipe["ingredientLines"]:
         print(f"-{ingredient}")
+    print(dbl_lines)
 
         # Ask if user would like to save the recipe
     save_file = input('Do you want to save the recipe to a file? (Y/N) ').lower()
