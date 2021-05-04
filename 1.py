@@ -20,25 +20,30 @@ app_key = '30acb7fe7dbb730ae70f3b81f1ce1d9f'
 # Backbone function - asking user for the criteria of the search
 def run():
     # Ask for dietary requirement - to be used as an input for Health labels
-    input_diet = int(input('Do you have any other dietary requirements? '
-                           '\r\n 1=None , 2=Vegan, 3=Vegetarian, 4=Pescatarian, 5=Wheat-free, 6=Kosher:'))
+    input_prompt_diet = input('Do you have any other dietary requirements? '
+                           '\r\n 1=None , 2=Vegan, 3=Vegetarian, 4=Pescatarian, 5=Wheat-free, 6=Kosher:')
 
     # If statements for obtaining the right parts of URL
-    if input_diet == 1:
-        allergy = ''
-    elif input_diet == 2:
-        allergy = '&health=vegan'
-    elif input_diet == 3:
-        allergy = '&health=vegetarian'
-    elif input_diet == 4:
-        allergy = '&health=pescatarian'
-    elif input_diet == 5:
-        allergy = '&health=wheat-free'
-    elif input_diet == 6:
-        allergy = '&health=kosher'
+    try:
+        input_diet = int(input_prompt_diet)
+        if input_diet == 1:
+            allergy = ''
+        elif input_diet == 2:
+            allergy = '&health=vegan'
+        elif input_diet == 3:
+            allergy = '&health=vegetarian'
+        elif input_diet == 4:
+            allergy = '&health=pescatarian'
+        elif input_diet == 5:
+            allergy = '&health=wheat-free'
+        elif input_diet == 6:
+            allergy = '&health=kosher'
 
-    # In case of an unidentified input, dietary requirement set to 1 - None
-    else:
+        # In case of an unidentified input, dietary requirement set to 1 - None
+        else:
+            allergy = ''
+            print('Input not recognised. No special dietary requirements have been specified.\n')
+    except ValueError:
         allergy = ''
         print('Input not recognised. No special dietary requirements have been specified.\n')
 
